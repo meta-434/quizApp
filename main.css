@@ -25,6 +25,11 @@ body::after {
     );
 }
 
+p {
+    padding: 0;
+    margin: 0;
+}
+
 h1 {
     font-size: medium;
     font-weight: normal;
