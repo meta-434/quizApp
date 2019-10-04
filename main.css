@@ -1,14 +1,52 @@
 body {
     background-color: black;
+    background-image: radial-gradient(
+            rgba(0, 150, 0, 0.75), black 120%
+    );
+    height: 100vh;
     color: white;
+    text-shadow: 0 0 5px #C8C8C8;
+    font: 1rem Inconsolata, monospace;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0, 0.15),
+            rgba(0,0,0, 0.15) 1px,
+            transparent 1px,
+            transparent 2px
+    );
+}
+
+h1 {
+    font-size: medium;
+    font-weight: normal;
+    text-align: center;
+    background-color: lightgray;
+    color: black;
 }
 
 input {
     background: none;
     border: none;
-    color:white;
+    color: inherit;
+    font: inherit;
+    text-shadow: inherit;
 }
 
 input:focus{
     outline: none;
+}
+
+::selection {
+    background: white;
+    color: black;
+    text-shadow: none;
 }

@@ -12,13 +12,13 @@ function handleStart () {
 
 function renderQuestion () {
     $('#quiz-body').append($(
-        `<p> {? => q${STORE.currentQuestion + 1}} {% => ${(STORE.score / 5) * 100}%}</p>
-        <p id="question-1">${STORE.questions[STORE.currentQuestion].question}</p>
-        <p id="answer-a">a: ${STORE.questions[STORE.currentQuestion].options.a}</p>
-        <p id="answer-b">b: ${STORE.questions[STORE.currentQuestion].options.b}</p>
-        <p id="answer-c">c: ${STORE.questions[STORE.currentQuestion].options.c}</p>
-        <p id="answer-d">d: ${STORE.questions[STORE.currentQuestion].options.d}</p>
-        <p>answer? (a/b/c/d): <input type="text" class="response"/> </p>`
+        `<p>guest@quizbox:~/ $ {? => q${STORE.currentQuestion + 1}} {% => ${(STORE.score / 5) * 100}%}</p>
+        <p id="question-1">guest@quizbox:~/ $ ${STORE.questions[STORE.currentQuestion].question}</p>
+        <p id="answer-a">>> a: ${STORE.questions[STORE.currentQuestion].options.a}</p>
+        <p id="answer-b">>> b: ${STORE.questions[STORE.currentQuestion].options.b}</p>
+        <p id="answer-c">>> c: ${STORE.questions[STORE.currentQuestion].options.c}</p>
+        <p id="answer-d">>> d: ${STORE.questions[STORE.currentQuestion].options.d}</p>
+        <p id="submission">guest@quizbox:~/ $ answer? (a/b/c/d): <input type="text" class="response"/> </p>`
     ));
     handleAnswerSubmit();
 };
