@@ -8,18 +8,14 @@
           href = "main.css" />
 </head>
 <body>
-    <h1>Terminal - guest@quizbox:~Documents/quiz command line quiz</h1>
-    <p>guest@quizbox:~/Documents/quiz$ shell_quiz.sh --press-enter-to-start</p>
-    <div>
-        <p>current question ${n}/5 current score ${n}/5</p>
-        <p id="question-1">quiz question 1</p>
-        <p id="answer-a">a - lorem ipsum dolor sit amet.</p>
-        <p id="answer-b">b - lorem ipsum dolor sit amet.</p>
-        <p id="answer-c">c - lorem ipsum dolor sit amet.</p>
-        <p id="answer-d">d - lorem ipsum dolor sit amet.</p>
-        <div>answer? (a/b/c/d): <input type="text" class="search"/> </div>
+    <h1>Terminal - guest@quizbox:~ command line quiz</h1>
+    <p id="start-text">guest@quizbox:~/ $ shell_quiz.sh <input type="text" value="--press-enter-to-start" readonly class="start"/></p>
+    <div id="quiz-body">
+
     </div>
-<!-- script links go here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="store.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
 

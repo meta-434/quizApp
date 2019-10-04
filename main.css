@@ -1,3 +1,14 @@
 body {
-    border: 3px solid black;
+    background-color: black;
+    color: white;
+}
+
+input {
+    background: none;
+    border: none;
+    color:white;
+}
+
+input:focus{
+    outline: none;
 }
