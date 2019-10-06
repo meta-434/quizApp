@@ -11,6 +11,15 @@ function handleStart () {
 };
 
 function renderQuestion () {
+    if ((STORE.currentQuestion)=== STORE.questions.length) {
+        console.log('end reached...');
+        $('#quiz-body').append($(
+            `<div>
+                <p>guest@quizbox:~/ $ ***FINAL SCORE*** {? => q${STORE.currentQuestion}} {% => ${(STORE.score / 5) * 100}%}</p>
+            </div>`
+        ));
+    }
+    console.log(`current question: ${STORE.currentQuestion + 1}`);
     $('#quiz-body').append($(
         `<div>
             <p>guest@quizbox:~/ $ {? => q${STORE.currentQuestion + 1}} {% => ${(STORE.score / 5) * 100}%}</p>
@@ -30,30 +39,32 @@ function handleAnswerSubmit () {
     $("#terminal-body").on('keydown', ".response", function response (e) {
         if (e.key === "Enter"){
             if($(".response").val() === "a") {
+                $(".response").detach();
                 checkAnswer("a");
             } else if ($(".response").val() === "b") {
+                $(".response").detach();
                 checkAnswer("b");
             } else if ($(".response").val() === "c") {
+                $(".response").detach();
                 checkAnswer("c");
             } else if ($(".response").val() === "d") {
+                $(".response").detach();
                 checkAnswer("d");
             }
         }
-        $(`#quiz-body div:nth-child(${STORE.currentQuestion})`).attr("disabled","disabled");
     })
 };
 
 function checkAnswer (resp) {
     if (STORE.questions[STORE.currentQuestion].answer === resp) {
         STORE.score += 1;
-        STORE.currentQuestion += 1;
-        console.log('correct!')
+        console.log('correct!');
         console.log("current question", STORE.currentQuestion, " current score: ", STORE.score);
     } else {
-        STORE.currentQuestion += 1;
         console.log(`wrong! correct answer was ${STORE.questions[STORE.currentQuestion].answer}`);
         console.log("current question", STORE.currentQuestion, " current score: ", STORE.score);
     }
+    STORE.currentQuestion += 1;
     renderQuestion();
 }
 
