@@ -1,11 +1,11 @@
 function handleStart () {
     console.log('STORE: ', STORE);
-    $(".start").on('keydown', function begin(e) {
+    $(".start").on('keydown click', function begin(e) {
        if (e.key === "Enter") {
            renderQuestion();
            console.log('enter handled');
            $(".start").hide();
-           $("#start-text").append($(`<span>--press-enter-to-start</span>`));
+           $("#start-text").append($(`<span>--enter-to-start</span>`));
        }
     });
 };
@@ -15,14 +15,14 @@ function renderQuestion () {
         console.log('end reached...');
         $('#quiz-body').append($(
             `<div>
-                <p>guest@quizbox:~/ $ ***FINAL SCORE*** {? => q${STORE.currentQuestion}} {% => ${(STORE.score / 5) * 100}%}</p>
+                <p>guest@quizbox:~/ $ ***FINAL SCORE*** {? => q${STORE.currentQuestion}} {% => ${(STORE.score / 5) * 100}% (${STORE.score} / 5)</p>
             </div>`
         ));
     }
     console.log(`current question: ${STORE.currentQuestion + 1}`);
     $('#quiz-body').append($(
         `<div>
-            <p>guest@quizbox:~/ $ {? => q${STORE.currentQuestion + 1}} {% => ${(STORE.score / 5) * 100}%}</p>
+            <p>guest@quizbox:~/ $ {?num => q${STORE.currentQuestion + 1}} {score% => ${(STORE.score / 5) * 100}% (${STORE.score} / 5)</p>
             <p id="question-1">guest@quizbox:~/ $ ${STORE.questions[STORE.currentQuestion].question}</p>
             <p id="answer-a">>> a: ${STORE.questions[STORE.currentQuestion].options.a}</p>
             <p id="answer-b">>> b: ${STORE.questions[STORE.currentQuestion].options.b}</p>
@@ -57,10 +57,13 @@ function handleAnswerSubmit () {
 
 function checkAnswer (resp) {
     if (STORE.questions[STORE.currentQuestion].answer === resp) {
+        $('#quiz-body').append($(`<div><p>guest@quizbox:~/ $ correct!</p></div>]`));
         STORE.score += 1;
         console.log('correct!');
         console.log("current question", STORE.currentQuestion, " current score: ", STORE.score);
+
     } else {
+        $('#quiz-body').append($(`<div><p>guest@quizbox:~/ $ incorrect, correct answer was ${STORE.questions[STORE.currentQuestion].answer}</p></div>]`));
         console.log(`wrong! correct answer was ${STORE.questions[STORE.currentQuestion].answer}`);
         console.log("current question", STORE.currentQuestion, " current score: ", STORE.score);
     }

@@ -69,3 +69,16 @@ input:focus{
     /* anchor nodes are required to have non-zero area */
     height: 1px;
 }
+
+@media screen and (max-width: 500px) {
+    body {
+        font: 22px Inconsolata, monospace;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    body {
+        font: 20px Inconsolata, monospace;
+    }
+}
+
