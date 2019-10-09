@@ -32,6 +32,7 @@ function renderQuestion () {
         </div>`
     ));
     handleAnswerSubmit();
+    $(this).next('.response').focus();
 };
 
 function handleAnswerSubmit () {
