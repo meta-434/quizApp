@@ -3,6 +3,7 @@ function handleStart () {
     $(".start").on('keydown click', function begin(e) {
        if (e.key === "Enter") {
            renderQuestion();
+           $(".response").focus();
            console.log('enter handled');
            $(".start").hide();
            $("#start-text").append($(`<span>--enter-to-start</span>`));
@@ -70,10 +71,12 @@ function checkAnswer (resp) {
     }
     STORE.currentQuestion += 1;
     renderQuestion();
+    $(".response").focus();
 }
 
 function start () {
     handleStart();
+    $(".start").focus();
 };
 
 $(start);
