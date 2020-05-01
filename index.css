@@ -1,0 +1,152 @@
+body {
+    background-color: black;
+    margin:0;
+    background-image: radial-gradient(
+            rgba(0, 150, 0, 0.75), black 120%
+    );
+    height: 100vh;
+    color: white;
+    text-shadow: 0 0 5px #C8C8C8;
+    font: 18px Inconsolata, monospace;
+    overflow-x: hidden;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0, 0.15),
+            rgba(0,0,0, 0.15) 1px,
+            transparent 1px,
+            transparent 2px
+    );
+    pointer-events: none;
+}
+
+header {
+    margin-top: 75px;
+    height:80px;
+    color: white;
+    margin-bottom: 55px;
+}
+
+.row {
+    max-width: 1000px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+    color: white;
+}
+
+header > .row {
+    color: white;
+}
+
+header h1 {
+    line-height: 1;
+    top:24px;
+    text-align: center;
+}
+
+header .question-and-score {
+    font-size: 20px;
+    color:white;
+    background: none;
+}
+
+.question-and-score ul {
+    text-align:center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.question-and-score li {
+    display: inline-block;
+    padding:0 2%;
+    color: white;
+}
+
+button {
+    margin-top:10px;
+    height: auto;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    color:white;
+    background: rgba(0, 150, 0, 0.75);
+    cursor: pointer;
+    margin-bottom: 0;
+    padding: 10px 20px;
+}
+
+fieldset {
+    width:100%;
+    border: none;
+}
+
+legend {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.question-form .question {
+    margin-bottom: 20px;
+    padding: 0 2%;
+    font-size: 20px;
+    color: white;
+}
+
+.options ul {
+    list-style: none;
+    margin:0;
+    text-align:left;
+}
+
+.hidden {
+    opacity: 0%;
+}
+
+label {
+    font-size:18px;
+}
+
+.options span {
+    display:block;
+}
+
+.correct {
+    padding: 10px 20px;
+    margin: 5px 20px;
+    border: 2px solid rgba(0, 150, 0, 0.75);
+    text-align: center;
+}
+
+.incorrect {
+    border: 2px solid red;
+    padding: 10px;
+    margin: 5px 20px;
+    text-align: center;
+}
+
+@keyframes blink {
+    0% {border: 2px solid black;}
+    50% {border: 2px solid white;}
+    100% {border: 2px solid black;}
+}
+
+button:hover:enabled,
+button:focus:enabled{
+    -webkit-animation: blink 1s;
+    animation: blink 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+button:disabled {
+    opacity: 50%;
+}
